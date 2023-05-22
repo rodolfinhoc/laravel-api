@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TbCadUsuario extends Migration
+class Usuario extends Migration
 {
     /**
      * Run the migrations.
@@ -16,7 +16,11 @@ class TbCadUsuario extends Migration
         Schema::create('tb_cad_usuario', function (Blueprint $table) {
         $table->increments('codigo');
         $table->string('nome');
-        $table->nullableTimestamps();
+        $table->string('usuario');
+        $table->string('senha');
+        $table->timestamps();
+        $table->dropColumn('created_at');
+        $table->dropColumn('updated_at');
     });
     }
 
