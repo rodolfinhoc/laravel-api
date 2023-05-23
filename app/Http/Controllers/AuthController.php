@@ -16,7 +16,11 @@ class AuthController extends Controller
         if (!$user || $user->senha !== $credentials['senha']) {
             return response()->json(['isLoggedIn' => false], 401);
         }
-
         return response()->json(['isLoggedIn' => true], 200);
+    }
+
+    public function user(Request $request)
+    {
+        return $request->user();
     }
 }
